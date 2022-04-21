@@ -22,9 +22,10 @@ namespace Steer73.FormsApp.ViewModels
 
         public async Task Initialize()
         {
+            IsBusy = true;
             try
             {
-                IsBusy = true;
+                
 
                 var users = await _userService.GetUsers();
 
@@ -32,6 +33,7 @@ namespace Steer73.FormsApp.ViewModels
                 {
                     Users.Add(user);
                 }
+                
             }
             catch (Exception ex)
             {
@@ -43,7 +45,15 @@ namespace Steer73.FormsApp.ViewModels
             }
         }
 
-        public bool IsBusy { get; set; }
+        private bool _isbusy;
+        public bool IsBusy
+        {
+            get => _isbusy;
+
+            set => SetProperty(ref _isbusy, value);
+           
+        }
+        
 
         public ICollection<User> Users { get; } = new ObservableCollection<User>();
     }

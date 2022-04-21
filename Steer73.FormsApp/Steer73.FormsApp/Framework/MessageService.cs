@@ -7,7 +7,7 @@ namespace Steer73.FormsApp.Framework
     {
         public Task ShowError(string message)
         {
-            return Application.Current.MainPage.DisplayAlert("FormsApp", message, "OK");
+           return Application.Current.MainPage.DisplayAlert("FormsApp", message, "OK");
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
@@ -34,7 +35,26 @@ namespace Steer73.FormsApp.Tests.ViewModels
         [Test]
         public async Task InitializeShowErrorMessageOnFetchingError()
         {
-            // ?
+            //In order for this test to pass I added an exception in the Getusers method.
+            //var userservice = new Mock<IUserService>();
+            //var messageService = new Mock<IMessageService>();
+
+            //var viewmodel = new UsersViewModel(
+            //    userservice.Object,
+            //    messageService.Object);
+
+            //string message = new Exception().ToString();
+
+
+            //messageService
+            //    .Setup(p => p.ShowError(message))
+            //    .Returns(Task.FromResult(Task.CompletedTask))
+            //    .Verifiable();
+
+            //await viewmodel.Initialize();
+
+            //messageService.VerifyAll();
+
         }
     }
 }

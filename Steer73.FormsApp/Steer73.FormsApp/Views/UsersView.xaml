@@ -2,34 +2,47 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Steer73.FormsApp.Views.UsersView">
+    x:Class="Steer73.FormsApp.Views.UsersView"
+    BackgroundColor="#faf9f6">
     <ContentPage.Content>
-        <CollectionView ItemSizingStrategy="MeasureAllItems" ItemsSource="{Binding Users}">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Span="2" Orientation="Vertical" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label>
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="{Binding FirstName}"/>
-                                        <Span Text="{Binding LastName}"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                        </Grid>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <ActivityIndicator IsEnabled="True" IsVisible="{Binding IsBusy}" IsRunning="True" Color="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="40"/>
+            <Grid>
+                <CollectionView ItemSizingStrategy="MeasureAllItems" 
+                            ItemsSource="{Binding Users}" 
+                            Margin="10"
+                            IsVisible="{Binding ListVisible}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="10" CornerRadius="5"  BackgroundColor="#fffefe">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label FontSize="Medium" TextColor="Black">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding FirstName}"/>
+                                                <Span Text=" "/>
+                                                <Span Text="{Binding LastName}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+                
+
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>
