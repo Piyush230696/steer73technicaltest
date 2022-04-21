@@ -4,5 +4,32 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Steer73.FormsApp.Views.UsersView">
     <ContentPage.Content>
+        <CollectionView ItemSizingStrategy="MeasureAllItems" ItemsSource="{Binding Users}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="2" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding FirstName}"/>
+                                        <Span Text="{Binding LastName}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </ContentPage.Content>
 </ContentPage>
